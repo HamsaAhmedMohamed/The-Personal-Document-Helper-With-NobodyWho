@@ -29,20 +29,18 @@ def search_textbook(keyword: str) -> str:
                 
     return "\n\n".join(relevant_chunks) if relevant_chunks else "Topic not found in book."
 
-# Initialize NobodyWho with your GGUF model
-chat = Chat("./Qwen_Qwen3-0.6B-Q4_K_M.gguf", tools=[search_textbook])
+# Initialize NobodyWho with your GGUF model and system prompt
+system_instruction = "You are a Study Assistant. When asked a question, search the textbook."
+# print(system_instruction)
+chat = Chat("./Qwen_Qwen3-0.6B-Q4_K_M.gguf",system_prompt=system_instruction,
+            tools=[search_textbook],n_ctx=2*4096)
 
-system_instruction = (
-    "You are a Study Assistant. When asked a question, search the textbook. "
-    "Always mention the Page Number provided in the source text."
-)
 
-print("PDF Helper: I've indexed your book. What should we review?")
 
 while True:
     query = input("You: ")
     # The AI will call 'search_textbook' if it doesn't know the answer
-    response = chat.ask(f"{system_instruction}\nUser: {query}")
+    response = chat.ask(f"student asks: {query}")
     
     for token in response:
         print(token, end="", flush=True)
