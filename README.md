@@ -59,18 +59,7 @@ Example:
 
 chat.ask("What does the textbook say about neural networks?")
 
-## 📌 Notes
 
--   Works best with clear, specific questions\
--   Performance depends on the quality and size of the model\
--   Designed as a lightweight demo, not a production system
-
-## 📈 Future Improvements
-
--   Better chunking and retrieval strategies\
--   Support for multiple documents\
--   UI for easier interaction\
--   Improved prompt engineering
 
 ## 📄 License
 
