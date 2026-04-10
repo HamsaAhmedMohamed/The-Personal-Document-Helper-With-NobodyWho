@@ -1,0 +1,5 @@
+.ipynb_checkpoints/
+# LLM models
+*.gguf
+*.bin
+*.safetensors
