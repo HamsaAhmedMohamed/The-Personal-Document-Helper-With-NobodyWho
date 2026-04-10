@@ -74,4 +74,4 @@ chat.ask("What does the textbook say about neural networks?")
 
 ## 📄 License
 
-Specify your license here.
+Public use.
